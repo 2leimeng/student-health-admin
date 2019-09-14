@@ -1,11 +1,11 @@
 /*
- * file Ñ§Éú½¡¿µ¹ÜÀíÏµÍ³
+ * file å­¦ç”Ÿå¥åº·ç®¡ç†ç³»ç»Ÿ
  *
- * author 2leimeng's high school classmate/2leimeng
+ * author caokefan's high school classmate/caokefan
  * date 2018/12/28
  * compile environment Visual Studio 2017 
  *
- * note ÏîÄ¿ÊôĞÔ->ÅäÖÃÊôĞÔ->C/C++ -> SDL¼ì²é ·ñ
+ * note é¡¹ç›®å±æ€§->é…ç½®å±æ€§->C/C++ -> SDLæ£€æŸ¥ å¦
  */
 #define _CRT_SECURE_NO_WARNINGS
 #include "stdio.h"
@@ -24,12 +24,12 @@ typedef struct  student
 	struct student* next;
 }node;
 
-int enterSchoolID(node*L); // °üº¬ÅĞ¶ÏÑ§ºÅÊÇ·ñÖØ¸´£¬ÈôÖØ¸´£¬ÔòÌáÊ¾¡°ÖØĞÂÊäÈë¡±£»
+int enterSchoolID(node*L); // åŒ…å«åˆ¤æ–­å­¦å·æ˜¯å¦é‡å¤ï¼Œè‹¥é‡å¤ï¼Œåˆ™æç¤ºâ€œé‡æ–°è¾“å…¥â€ï¼›
 int isExist(node*L);
 int getChoice(int x, int y);
 
 
-/*1ĞÅÏ¢ÊäÈë*/
+/*1ä¿¡æ¯è¾“å…¥*/
 node* createdatabase()
 {
 	node* L, *r, *p;
@@ -39,30 +39,30 @@ node* createdatabase()
 	while (pd == 1)
 	{
 		system("cls");
-		printf("µÚ %d ¸öÑ§ÉúµÄ»ù±¾ĞÅÏ¢\n", i);
+		printf("ç¬¬ %d ä¸ªå­¦ç”Ÿçš„åŸºæœ¬ä¿¡æ¯\n", i);
 		p = (node *)malloc(sizeof(node));
-		printf("ÇëÊäÈëÑ§ºÅ\n");
+		printf("è¯·è¾“å…¥å­¦å·\n");
 		p->schoolID = enterSchoolID(L);
-		printf("ÇëÊäÈëĞÕÃû\n");
+		printf("è¯·è¾“å…¥å§“å\n");
 		fflush(stdin);
 		scanf("%s", &p->name);
-		printf("ÇëÊäÈëĞÔ±ğ\n");
+		printf("è¯·è¾“å…¥æ€§åˆ«\n");
 		fflush(stdin);
 		scanf("%s", &p->sex);
-		printf("ÇëÊäÈëÑ§Ôº\n");
+		printf("è¯·è¾“å…¥å­¦é™¢\n");
 		fflush(stdin);
 		scanf("%s", &p->college);
 		fflush(stdin);
-		printf("ÇëÊäÈë×¨Òµ\n");
+		printf("è¯·è¾“å…¥ä¸“ä¸š\n");
 		fflush(stdin);
 		scanf("%s", &p->major);
-		printf("ÇëÊäÈë½¡¿µÇé¿ö\n");
+		printf("è¯·è¾“å…¥å¥åº·æƒ…å†µ\n");
 		fflush(stdin);
 		scanf("%s", &p->health);
 		r->next = p;
 		r = p;
 		i++;
-		printf("¼ÌĞøÊäÈëĞÅÏ¢Çë°´£º1 ·µ»Ø²Ëµ¥Çë°´£º0\n");
+		printf("ç»§ç»­è¾“å…¥ä¿¡æ¯è¯·æŒ‰ï¼š1 è¿”å›èœå•è¯·æŒ‰ï¼š0\n");
 		scanf("%d", &pd);
 	}
 	r->next = NULL;
@@ -70,12 +70,12 @@ node* createdatabase()
 }
 
 
-/*2ĞÅÏ¢Êä³ö*/
+/*2ä¿¡æ¯è¾“å‡º*/
 void output(node* L)
 {
 	node *p;
 	p = L->next;
-	printf("Ñ§ºÅ\tĞÕÃû\tĞÔ±ğ\tÑ§Ôº\t×¨Òµ\t½¡¿µÇé¿ö\n");
+	printf("å­¦å·\tå§“å\tæ€§åˆ«\tå­¦é™¢\tä¸“ä¸š\tå¥åº·æƒ…å†µ\n");
 	while (p != NULL)
 	{
 		printf("%d\t", p->schoolID);
@@ -88,16 +88,16 @@ void output(node* L)
 	}
 }
 
-/*ĞÅÏ¢Êä³ö°´ĞÔ±ğ*/
+/*ä¿¡æ¯è¾“å‡ºæŒ‰æ€§åˆ«*/
 void outputBySex(node* L)
 {
 	node *p;
 	char sex[10];
-	printf("ÇëÊäÈëĞÔ±ğ£º");
+	printf("è¯·è¾“å…¥æ€§åˆ«ï¼š");
 	fflush(stdin);
 	gets_s(sex);
 	p = L->next;
-	printf("Ñ§ºÅ\tĞÕÃû\tĞÔ±ğ\tÑ§Ôº\t×¨Òµ\t½¡¿µÇé¿ö\n");
+	printf("å­¦å·\tå§“å\tæ€§åˆ«\tå­¦é™¢\tä¸“ä¸š\tå¥åº·æƒ…å†µ\n");
 	while (p != NULL)
 	{
 		if (strcmp(sex, p->sex) == 0)
@@ -113,16 +113,16 @@ void outputBySex(node* L)
 	}
 }
 
-/*ĞÅÏ¢Êä³ö°´×¨Òµ*/
+/*ä¿¡æ¯è¾“å‡ºæŒ‰ä¸“ä¸š*/
 void outputByMajor(node* L)
 {
 	node *p;
 	char major[20];
-	printf("ÇëÊäÈë×¨Òµ£º");
+	printf("è¯·è¾“å…¥ä¸“ä¸šï¼š");
 	fflush(stdin);
 	gets_s(major);
 	p = L->next;
-	printf("Ñ§ºÅ\tĞÕÃû\tĞÔ±ğ\tÑ§Ôº\t×¨Òµ\t½¡¿µÇé¿ö\n");
+	printf("å­¦å·\tå§“å\tæ€§åˆ«\tå­¦é™¢\tä¸“ä¸š\tå¥åº·æƒ…å†µ\n");
 	while (p != NULL)
 	{
 		if (strcmp(major, p->major) == 0)
@@ -138,16 +138,16 @@ void outputByMajor(node* L)
 	}
 }
 
-/*ĞÅÏ¢Êä³ö°´Ñ§Ôº*/
+/*ä¿¡æ¯è¾“å‡ºæŒ‰å­¦é™¢*/
 void outputByCollege(node* L)
 {
 	node *p;
 	char college[15];
-	printf("ÇëÊäÈëÑ§Ôº£º");
+	printf("è¯·è¾“å…¥å­¦é™¢ï¼š");
 	fflush(stdin);
 	gets_s(college);
 	p = L->next;
-	printf("Ñ§ºÅ\tĞÕÃû\tĞÔ±ğ\tÑ§Ôº\t×¨Òµ\t½¡¿µÇé¿ö\n");
+	printf("å­¦å·\tå§“å\tæ€§åˆ«\tå­¦é™¢\tä¸“ä¸š\tå¥åº·æƒ…å†µ\n");
 	while (p != NULL)
 	{
 		if (strcmp(college, p->college) == 0)
@@ -163,16 +163,16 @@ void outputByCollege(node* L)
 	}
 }
 
-/*ĞÅÏ¢Êä³ö°´½¡¿µ×´¿ö*/
+/*ä¿¡æ¯è¾“å‡ºæŒ‰å¥åº·çŠ¶å†µ*/
 void outputByHealth(node* L)
 {
 	node *p;
 	char health[5];
-	printf("ÇëÊäÈë½¡¿µ×´¿ö£º");
+	printf("è¯·è¾“å…¥å¥åº·çŠ¶å†µï¼š");
 	fflush(stdin);
 	gets_s(health);
 	p = L->next;
-	printf("Ñ§ºÅ\tĞÕÃû\tĞÔ±ğ\tÑ§Ôº\t×¨Òµ\t½¡¿µÇé¿ö\n");
+	printf("å­¦å·\tå§“å\tæ€§åˆ«\tå­¦é™¢\tä¸“ä¸š\tå¥åº·æƒ…å†µ\n");
 	while (p != NULL)
 	{
 		if (strcmp(health, p->health) == 0)
@@ -188,29 +188,29 @@ void outputByHealth(node* L)
 	}
 }
 
-//3.ĞÅÏ¢Ìí¼Ó//
+//3.ä¿¡æ¯æ·»åŠ //
 node*  addInformation(node*L)
 {
 	node*p;
 	p = (node *)malloc(sizeof(node));
-	printf("ÇëÊäÈëĞÂÌíÑ§ÉúµÄ»ù±¾ĞÅÏ¢\n");
-	printf("ÇëÊäÈëÑ§ºÅ\n");
+	printf("è¯·è¾“å…¥æ–°æ·»å­¦ç”Ÿçš„åŸºæœ¬ä¿¡æ¯\n");
+	printf("è¯·è¾“å…¥å­¦å·\n");
 	p->schoolID = enterSchoolID(L);
-	printf("ÇëÊäÈëĞÕÃû\n");
+	printf("è¯·è¾“å…¥å§“å\n");
 	scanf("%s", &p->name);
-	printf("ÇëÊäÈëĞÔ±ğ\n");
+	printf("è¯·è¾“å…¥æ€§åˆ«\n");
 	scanf("%s", &p->sex);
-	printf("ÇëÊäÈëÑ§Ôº\n");
+	printf("è¯·è¾“å…¥å­¦é™¢\n");
 	scanf("%s", &p->college);
-	printf("ÇëÊäÈë×¨Òµ\n");
+	printf("è¯·è¾“å…¥ä¸“ä¸š\n");
 	scanf("%s", &p->major);
-	printf("ÇëÊäÈë½¡¿µÇé¿ö\n");
+	printf("è¯·è¾“å…¥å¥åº·æƒ…å†µ\n");
 	scanf("%s", &p->health);
 	p->next = L->next;
 	L->next = p;
 	return L;
 }
-/*ÅĞ¶ÏÑ§ºÅÖØ¸´*/
+/*åˆ¤æ–­å­¦å·é‡å¤*/
 int enterSchoolID(node*L)
 {
 	node*p;
@@ -226,16 +226,16 @@ int enterSchoolID(node*L)
 		if (p == NULL)
 			return n;
 		else
-			printf("Ñ§ºÅÖØ¸´£¬ÇëÖØĞÂÊäÈë£º");
+			printf("å­¦å·é‡å¤ï¼Œè¯·é‡æ–°è¾“å…¥ï¼š");
 	}
 }
-//ĞÅÏ¢É¾³ı//
+//ä¿¡æ¯åˆ é™¤//
 node* deleteInformation(node*L)
 {
 	int schoolid;
 	node *p, *q;
 	p = L;
-	printf("ÇëÊäÈëÉ¾³ıÑ§ÉúµÄÑ§ºÅ£º");
+	printf("è¯·è¾“å…¥åˆ é™¤å­¦ç”Ÿçš„å­¦å·ï¼š");
 	schoolid = isExist(L);
 	while (p->next != NULL)
 	{
@@ -252,19 +252,19 @@ node* deleteInformation(node*L)
 	return L;
 }
 
-//ĞÅÏ¢ĞŞ¸Ä//
+//ä¿¡æ¯ä¿®æ”¹//
 void  modifyInformation(node*L)
 {
 	node*p;
 	int n, m;
 	p = L->next;
-	printf("ÇëÊäÈëĞèÒªĞŞ¸ÄĞÅÏ¢µÄÍ¬Ñ§µÄÑ§ºÅ£º");
+	printf("è¯·è¾“å…¥éœ€è¦ä¿®æ”¹ä¿¡æ¯çš„åŒå­¦çš„å­¦å·ï¼š");
 	n = isExist(L);
 	while (p->schoolID != n)
 	{
 		p = p->next;
 	}
-	printf("Ñ§ºÅ\tĞÕÃû\tĞÔ±ğ\tÑ§Ôº\t×¨Òµ\t½¡¿µÇé¿ö\n");
+	printf("å­¦å·\tå§“å\tæ€§åˆ«\tå­¦é™¢\tä¸“ä¸š\tå¥åº·æƒ…å†µ\n");
 	printf("%d\t", p->schoolID);
 	printf("%s\t", p->name);
 	printf("%s\t", p->sex);
@@ -274,30 +274,30 @@ void  modifyInformation(node*L)
 	while (1)
 	{
 
-		printf("1:ĞŞ¸ÄĞÕÃû\n");
-		printf("2:ĞŞ¸ÄĞÔ±ğ\n");
-		printf("3:ĞŞ¸ÄÑ§Ôº\n");
-		printf("4:ĞŞ¸Ä×¨Òµ\n");
-		printf("5:ĞŞ¸Ä½¡¿µÇé¿ö\n");
-		printf("0:Íê³ÉĞŞ¸Ä\n");
-		printf("ÇëÑ¡ÔñĞŞ¸ÄÄÚÈİ:");
+		printf("1:ä¿®æ”¹å§“å\n");
+		printf("2:ä¿®æ”¹æ€§åˆ«\n");
+		printf("3:ä¿®æ”¹å­¦é™¢\n");
+		printf("4:ä¿®æ”¹ä¸“ä¸š\n");
+		printf("5:ä¿®æ”¹å¥åº·æƒ…å†µ\n");
+		printf("0:å®Œæˆä¿®æ”¹\n");
+		printf("è¯·é€‰æ‹©ä¿®æ”¹å†…å®¹:");
 		m = getChoice(0, 5);
 		switch (m)
 		{
 		case 0:return;
-		case 1: {printf("ÇëÊäÈëĞÂµÄĞÅÏ¢£º");
+		case 1: {printf("è¯·è¾“å…¥æ–°çš„ä¿¡æ¯ï¼š");
 			scanf("%s", p->name); break; }
-		case 2: {printf("ÇëÊäÈëĞÂµÄĞÅÏ¢£º");
+		case 2: {printf("è¯·è¾“å…¥æ–°çš„ä¿¡æ¯ï¼š");
 			scanf("%s", p->sex); break; }
-		case 3: {printf("ÇëÊäÈëĞÂµÄĞÅÏ¢£º");
+		case 3: {printf("è¯·è¾“å…¥æ–°çš„ä¿¡æ¯ï¼š");
 			scanf("%s", p->college); break; }
-		case 4: {printf("ÇëÊäÈëĞÂµÄĞÅÏ¢£º");
+		case 4: {printf("è¯·è¾“å…¥æ–°çš„ä¿¡æ¯ï¼š");
 			scanf("%s", p->major); break; }
-		case 5: {printf("ÇëÊäÈëĞÂµÄĞÅÏ¢£º");
+		case 5: {printf("è¯·è¾“å…¥æ–°çš„ä¿¡æ¯ï¼š");
 			scanf("%s", p->health); break; }
 		}
-		printf("ĞŞ¸ÄºóµÄĞÅÏ¢£º\n");
-		printf("Ñ§ºÅ\tĞÕÃû\tĞÔ±ğ\tÑ§Ôº\t×¨Òµ\t½¡¿µÇé¿ö\n");
+		printf("ä¿®æ”¹åçš„ä¿¡æ¯ï¼š\n");
+		printf("å­¦å·\tå§“å\tæ€§åˆ«\tå­¦é™¢\tä¸“ä¸š\tå¥åº·æƒ…å†µ\n");
 		printf("%d\t", p->schoolID);
 		printf("%s\t", p->name);
 		printf("%s\t", p->sex);
@@ -308,12 +308,12 @@ void  modifyInformation(node*L)
 }
 
 
-/*ĞÅÏ¢²éÕÒ°´Ñ§ºÅ*/
+/*ä¿¡æ¯æŸ¥æ‰¾æŒ‰å­¦å·*/
 void findByID(node*L)
 {
 	int schoolid, choice;
 	node *p;
-	printf("ÇëÊäÈëÑ§ºÅ£º");
+	printf("è¯·è¾“å…¥å­¦å·ï¼š");
 	while (1)
 	{
 		p = L->next;
@@ -324,8 +324,8 @@ void findByID(node*L)
 		}
 		if (p == NULL)
 		{
-			printf("ÎŞ´ËÑ§Éú");
-			printf("1:ÖØĞÂÊäÈë\n2:·ÅÆú²éÕÒ");
+			printf("æ— æ­¤å­¦ç”Ÿ");
+			printf("1:é‡æ–°è¾“å…¥\n2:æ”¾å¼ƒæŸ¥æ‰¾");
 			choice = getChoice(1, 2);
 			switch (choice)
 			{
@@ -335,8 +335,8 @@ void findByID(node*L)
 		}
 		else
 		{
-			printf("ÄãËù²éÕÒµÄÑ§ÉúµÄĞÅÏ¢£º");
-			printf("Ñ§ºÅ\tĞÕÃû\tĞÔ±ğ\tÑ§Ôº\t×¨Òµ\t½¡¿µÇé¿ö\n");
+			printf("ä½ æ‰€æŸ¥æ‰¾çš„å­¦ç”Ÿçš„ä¿¡æ¯ï¼š");
+			printf("å­¦å·\tå§“å\tæ€§åˆ«\tå­¦é™¢\tä¸“ä¸š\tå¥åº·æƒ…å†µ\n");
 			printf("%d\t", p->schoolID);
 			printf("%s\t", p->name);
 			printf("%s\t", p->sex);
@@ -347,12 +347,12 @@ void findByID(node*L)
 		}
 	}
 }
-/*ĞÅÏ¢²éÕÒ°´ĞÕÃû*/
+/*ä¿¡æ¯æŸ¥æ‰¾æŒ‰å§“å*/
 void findByName(node*L)
 {
 	char na[10];
 	node *p;
-	printf("ÇëÊäÈëÒª²éµÄÑ§ÉúµÄĞÕÃû£º");
+	printf("è¯·è¾“å…¥è¦æŸ¥çš„å­¦ç”Ÿçš„å§“åï¼š");
 	while (1)
 	{
 		int choice;
@@ -365,8 +365,8 @@ void findByName(node*L)
 		}
 		if (p != NULL)
 		{
-			printf("ÄãËù²éÕÒµÄÑ§ÉúµÄĞÅÏ¢£º");
-			printf("Ñ§ºÅ\tĞÕÃû\tĞÔ±ğ\tÑ§Ôº\t×¨Òµ\t½¡¿µÇé¿ö\n");
+			printf("ä½ æ‰€æŸ¥æ‰¾çš„å­¦ç”Ÿçš„ä¿¡æ¯ï¼š");
+			printf("å­¦å·\tå§“å\tæ€§åˆ«\tå­¦é™¢\tä¸“ä¸š\tå¥åº·æƒ…å†µ\n");
 			printf("%d\t", p->schoolID);
 			printf("%s\t", p->name);
 			printf("%s\t", p->sex);
@@ -377,8 +377,8 @@ void findByName(node*L)
 		}
 		else
 		{
-			printf("ÎŞ´ËÑ§Éú");
-			printf("1:ÖØĞÂÊäÈë\n2:·ÅÆú²éÕÒ");
+			printf("æ— æ­¤å­¦ç”Ÿ");
+			printf("1:é‡æ–°è¾“å…¥\n2:æ”¾å¼ƒæŸ¥æ‰¾");
 			choice = getChoice(1, 2);
 			switch (choice)
 			{
@@ -389,20 +389,20 @@ void findByName(node*L)
 	}
 }
 
-/*ÅĞ¶ÏÑ¡Ôñ*/
+/*åˆ¤æ–­é€‰æ‹©*/
 int getChoice(int x, int y)
 {
 	int choice = 0;
 	while (scanf("%d", &choice) != 1 || choice<x || choice>y)
 	{
-		printf("ÄãÊäÈë´íÎó£¨·¶Î§%d~%d£©", x, y);
-		printf("ÇëÖØĞÂÊäÈë£º");
+		printf("ä½ è¾“å…¥é”™è¯¯ï¼ˆèŒƒå›´%d~%dï¼‰", x, y);
+		printf("è¯·é‡æ–°è¾“å…¥ï¼š");
 	}
 	return choice;
 }
 
 
-/*ÅĞ¶ÏÑ§ºÅÊÇ·ñ´æÔÚ*/
+/*åˆ¤æ–­å­¦å·æ˜¯å¦å­˜åœ¨*/
 int isExist(node*L)
 {
 	node*p;
@@ -418,22 +418,22 @@ int isExist(node*L)
 		if (p != NULL)
 			return n;
 		else
-			printf("ÎŞ´ËÑ§Éú£¬ÇëÖØĞÂÊäÈë£º");
+			printf("æ— æ­¤å­¦ç”Ÿï¼Œè¯·é‡æ–°è¾“å…¥ï¼š");
 	}
 }
-/*Êä³ö¹¦ÄÜÑ¡Ôñ*/
+/*è¾“å‡ºåŠŸèƒ½é€‰æ‹©*/
 void   outputFuncSelect(node*L)
 {
 	int nub;
 	while (1)
 	{
 		system("cls");
-		printf("   1. Êä³öËùÓĞĞÅÏ¢\n");
-		printf("   2. °´ĞÔ±ğÊä³öĞÅÏ¢\n");
-		printf("   3. °´×¨ÒµÊä³öĞÅÏ¢\n");
-		printf("   4. °´Ñ§ÔºÊä³öĞÅÏ¢\n");
-		printf("   5. °´½¡¿µ×´¿öÊä³öĞÅÏ¢\n");
-		printf("   0. ÍË³öÊä³öÏµÍ³\n");
+		printf("   1. è¾“å‡ºæ‰€æœ‰ä¿¡æ¯\n");
+		printf("   2. æŒ‰æ€§åˆ«è¾“å‡ºä¿¡æ¯\n");
+		printf("   3. æŒ‰ä¸“ä¸šè¾“å‡ºä¿¡æ¯\n");
+		printf("   4. æŒ‰å­¦é™¢è¾“å‡ºä¿¡æ¯\n");
+		printf("   5. æŒ‰å¥åº·çŠ¶å†µè¾“å‡ºä¿¡æ¯\n");
+		printf("   0. é€€å‡ºè¾“å‡ºç³»ç»Ÿ\n");
 		nub = getChoice(0, 5);
 		switch (nub)
 		{
@@ -461,15 +461,15 @@ void   outputFuncSelect(node*L)
 		}
 	}
 }
-/*²éÕÒ¹¦ÄÜÑ¡Ôñ*/
+/*æŸ¥æ‰¾åŠŸèƒ½é€‰æ‹©*/
 void   findFuncSelect(node*L)
 {
 	int nub;
 	while (1)
 	{
-		printf("   1. °´Ñ§ºÅ²éÕÒĞÅÏ¢\n");
-		printf("   2. °´ĞÕÃû²éÕÒĞÅÏ¢\n");
-		printf("   0. ÍË³ö²éÕÒÏµÍ³\n");
+		printf("   1. æŒ‰å­¦å·æŸ¥æ‰¾ä¿¡æ¯\n");
+		printf("   2. æŒ‰å§“åæŸ¥æ‰¾ä¿¡æ¯\n");
+		printf("   0. é€€å‡ºæŸ¥æ‰¾ç³»ç»Ÿ\n");
 		nub = getChoice(0, 2);
 		switch (nub)
 		{
@@ -485,24 +485,24 @@ void   findFuncSelect(node*L)
 	}
 }
 
-/*²Ëµ¥*/
+/*èœå•*/
 void  menu_show()
 {
-	printf("	»¶Ó­Ê¹ÓÃ\n");
-	printf("  Ñ§Éú½¡¿µÇé¿ö¼à¿Ø¹ÜÀíÏµÍ³\n");
+	printf("	æ¬¢è¿ä½¿ç”¨\n");
+	printf("  å­¦ç”Ÿå¥åº·æƒ…å†µç›‘æ§ç®¡ç†ç³»ç»Ÿ\n");
 	printf("===========================\n");
-	printf("   1. Ñ§ÉúĞÅÏ¢µÄ²É¼¯\n");
-	printf("   2. Ñ§ÉúĞÅÏ¢µÄÌí¼Ó\n");
-	printf("   3. Ñ§ÉúĞÅÏ¢µÄ²éÕÒ\n");
-	printf("   4. Ñ§ÉúĞÅÏ¢µÄÉ¾³ı\n");
-	printf("   5. Ñ§ÉúĞÅÏ¢µÄĞŞ¸Ä\n");
-	printf("   6. Ñ§ÉúĞÅÏ¢µÄÍ³¼Æ\n");
-	printf("   0. ÍË³ö¹ÜÀíÏµÍ³\n");
+	printf("   1. å­¦ç”Ÿä¿¡æ¯çš„é‡‡é›†\n");
+	printf("   2. å­¦ç”Ÿä¿¡æ¯çš„æ·»åŠ \n");
+	printf("   3. å­¦ç”Ÿä¿¡æ¯çš„æŸ¥æ‰¾\n");
+	printf("   4. å­¦ç”Ÿä¿¡æ¯çš„åˆ é™¤\n");
+	printf("   5. å­¦ç”Ÿä¿¡æ¯çš„ä¿®æ”¹\n");
+	printf("   6. å­¦ç”Ÿä¿¡æ¯çš„ç»Ÿè®¡\n");
+	printf("   0. é€€å‡ºç®¡ç†ç³»ç»Ÿ\n");
 	printf("===========================\n");
-	printf("   ÇëÑ¡Ôñ0-6: ");
+	printf("   è¯·é€‰æ‹©0-6: ");
 }
 
-/*Ö÷º¯Êı*/
+/*ä¸»å‡½æ•°*/
 void main()
 {
 	node*L;
@@ -537,9 +537,9 @@ void main()
 			outputFuncSelect(L);
 			break;
 		}
-		case 0: {printf("Ğ»Ğ»ÄãµÄÊ¹ÓÃ£¬ÔÙ¼û£¡\n");
+		case 0: {printf("è°¢è°¢ä½ çš„ä½¿ç”¨ï¼Œå†è§ï¼\n");
 			system("pause");
-			exit(0);  // ³ÌĞòÔËĞĞ½áÊø
+			exit(0);  // ç¨‹åºè¿è¡Œç»“æŸ
 			break;
 		}
 		}
